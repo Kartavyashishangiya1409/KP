@@ -1,0 +1,189 @@
+{
+  "nav": {
+    "home": "Home",
+    "books": "Books",
+    "about": "About",
+    "contact": "Contact",
+    "enquire_now": "Enquire Now"
+  },
+  "home": {
+    "hero": {
+      "tag": "Premium Educational Resources",
+      "heading": "Master the Fundamentals.",
+      "subtitle": "We design structured, comprehensive study materials that turn complex subjects into intuitive knowledge — for lasting academic success.",
+      "cta_books": "Explore Books",
+      "cta_contact": "Contact Us"
+    },
+    "statement": {
+      "text_main": "Mathematics becomes simple",
+      "text_sub": "when the basics are clear."
+    },
+    "approach": {
+      "tag": "Our Approach",
+      "heading": "Building intuition, not just memory.",
+      "description": "At Kartavya Publication, we bridge the gap between confusion and mastery. We dissect complex syllabi into digestible, logical steps that build true understanding.",
+      "features": [
+        "Step-by-step conceptual breakdowns",
+        "Real-world examples and practice sets",
+        "Focus on competitive exam readiness",
+        "Structured revision pathways"
+      ]
+    },
+    "collection": {
+      "tag": "Our Collection",
+      "heading": "Three books. One mission."
+    },
+    "why": {
+      "heading": "Why Kartavya Publication?",
+      "items": [
+        {
+          "title": "Precision",
+          "desc": "Targeted, syllabus-aligned content with zero fluff."
+        },
+        {
+          "title": "Clarity",
+          "desc": "Structured to match natural learning patterns."
+        },
+        {
+          "title": "Results",
+          "desc": "Built to maximize scores and competitive readiness."
+        },
+        {
+          "title": "Quality",
+          "desc": "Error-free, expertly reviewed academic literature."
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Ready to transform learning?",
+      "subtitle": "Join thousands of students who have elevated their academic journey with Kartavya Publication.",
+      "button": "Place an Order"
+    }
+  },
+  "about": {
+    "hero": {
+      "tag": "Our Story",
+      "title": "About Kartavya Publication",
+      "subtitle": "We are dedicated to producing high-quality educational resources that empower students to achieve excellence. Since our inception, we have focused on clarity, depth, and pedagogical effectiveness."
+    },
+    "mission": {
+      "tag": "Mission",
+      "title": "Simplify learning.",
+      "desc": "To provide comprehensive, accessible, and structured educational materials that simplify complex concepts and pave the way for academic success."
+    },
+    "vision": {
+      "tag": "Vision",
+      "title": "Set the standard.",
+      "desc": "To become the most trusted educational publication brand, renowned for setting absolute standards of quality in curriculum design."
+    },
+    "stats": [
+      { "value": "15K+", "label": "Students Empowered" },
+      { "value": "3", "label": "Premium Books" },
+      { "value": "10+", "label": "Years of Trust" }
+    ],
+    "values": {
+      "heading": "Why we stand out",
+      "items": [
+        {
+          "title": "Structured Curriculum",
+          "desc": "Our books follow a logical, step-by-step approach ensuring clarity and high retention."
+        },
+        {
+          "title": "Quality Content",
+          "desc": "Meticulously researched and vetted by experienced educators in the field."
+        },
+        {
+          "title": "Student Centric",
+          "desc": "Designed keeping the psychological learning curve of students in mind."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "hero": {
+      "tag": "Get in Touch",
+      "title": "Contact Us",
+      "subtitle": "Have a question or want to place a bulk order? We'd love to hear from you."
+    },
+    "enquiry": {
+      "title": "Enquire Now",
+      "order_button": "Order via WhatsApp",
+      "features": "Key Features"
+    },
+    "info": {
+      "title": "Contact Information",
+      "details": {
+        "location": { "label": "Location", "value": "University Road, Rajkot,\nGujarat, India" },
+        "phone": { "label": "Phone", "value": "+91 97269 82383\n+91 83209 98157" },
+        "email": { "label": "Email", "value": "kartavyapublication@gmail.com" },
+        "hours": { "label": "Hours", "value": "Mon – Sat: 9:00 AM – 6:00 PM" }
+      }
+    },
+    "form": {
+      "title": "Send an Enquiry",
+      "name": { "label": "Name", "placeholder": "Your Name", "error_required": "Name is required", "error_min": "Name must be at least 2 characters" },
+      "phone": { "label": "Phone", "placeholder": "+91 97269 82383", "error_required": "Phone is required", "error_min": "Phone must be at least 10 digits" },
+      "book": { "label": "Select Book", "placeholder": "General Enquiry" },
+      "quantity": { "label": "Quantity" },
+      "message": { "label": "Message", "placeholder": "How can we help you?", "error_required": "Message is required", "default": "Hello, I am interested in {{book}}. Please share details." },
+      "submit": "Send via WhatsApp"
+    }
+  },
+  "books_page": {
+    "header": {
+      "tag": "Our Collection",
+      "title": "Publications",
+      "subtitle": "Three meticulously crafted books designed to build strong foundations and advanced problem-solving skills."
+    },
+    "details_button": "Book's Details"
+  },
+  "books_data": {
+    "ekam-1": {
+      "title": "Ekam-1",
+      "subtitle": "Foundation - Part 1",
+      "description": "A foundational book designed to build strong basic concepts in education. Perfect for early learners looking for structured guidance.",
+      "long_description": "Ekam-1 is the definitive starting point for students seeking a rock-solid grasp of mathematical fundamentals. Every chapter is meticulously sequenced to build intuition before skill, ensuring concepts stick for life—not just for exams.",
+      "features": [
+        "200+ Pages of Core Content",
+        "Interactive Exercises & Practice Sets",
+        "Chapter-wise Summaries & Revision Notes",
+        "English/Gujarati Medium — Clear & Accessible"
+      ]
+    },
+    "aagvu-ganit": {
+      "title": "Aagvu Ganit",
+      "subtitle": "Advanced Mathematics",
+      "description": "An advanced mathematics guide providing deep analytical insights, shortcuts, and comprehensive problem-solving techniques.",
+      "long_description": "Aagvu Ganit is for the ambitious student. It goes beyond routine problem-solving to teach analytical thinking, shortcut methods, and competition-level strategies that transform how students approach mathematics.",
+      "features": [
+        "Advanced Math Techniques & Shortcuts",
+        "Competitive Exam Focused Material",
+        "Previous Year Question Papers Included",
+        "English/Gujarati Medium — Comprehensive Coverage"
+      ]
+    },
+    "ekam-2": {
+      "title": "Ekam-2",
+      "subtitle": "Foundation - Part 2",
+      "description": "The highly anticipated sequel, bringing advanced foundational concepts with modern pedagogical approaches.",
+      "long_description": "Building on the proven methodology of Ekam-1, this sequel dives deeper into advanced foundational concepts. With modern pedagogical design, concept maps, and integrated digital resources, Ekam-2 is the next evolution in structured learning.",
+      "features": [
+        "Advanced Curriculum with Modern Approach",
+        "Visual Concept Maps Included",
+        "Online Mock Test Access",
+        "English/Gujarati Medium — Expert Authored"
+      ]
+    }
+  },
+  "footer": {
+    "description": "Premium educational publications designed to build unshakeable foundations in mathematics and beyond.",
+    "sections": {
+      "navigate": "Navigate",
+      "contact": "Get in Touch"
+    },
+    "address": "University Road, Rajkot, Gujarat",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms"
+  }
+}
