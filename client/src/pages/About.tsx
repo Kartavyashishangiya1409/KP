@@ -65,26 +65,6 @@ export default function About() {
     return () => ctx.revert();
   }, []);
 
-  const stats = [
-    { value: "15K+", label: "Students Empowered" },
-    { value: "3", label: "Premium Books" },
-    { value: "10+", label: "Years of Trust" },
-  ];
-
-  const values = [
-    {
-      title: "Structured Curriculum",
-      desc: "Our books follow a logical, step-by-step approach ensuring clarity and high retention.",
-    },
-    {
-      title: "Quality Content",
-      desc: "Meticulously researched and vetted by experienced educators in the field.",
-    },
-    {
-      title: "Student Centric",
-      desc: "Designed keeping the psychological learning curve of students in mind.",
-    },
-  ];
 
   return (
     <>

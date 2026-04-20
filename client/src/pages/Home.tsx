@@ -239,28 +239,6 @@ export default function Home() {
     return () => ctx.revert();
   }, []);
 
-  const whyItems = [
-    {
-      number: "01",
-      title: "Precision",
-      desc: "Targeted, syllabus-aligned content with zero fluff.",
-    },
-    {
-      number: "02",
-      title: "Clarity",
-      desc: "Structured to match natural learning patterns.",
-    },
-    {
-      number: "03",
-      title: "Results",
-      desc: "Built to maximize scores and competitive readiness.",
-    },
-    {
-      number: "04",
-      title: "Quality",
-      desc: "Error-free, expertly reviewed academic literature.",
-    },
-  ];
 
   return (
     <>

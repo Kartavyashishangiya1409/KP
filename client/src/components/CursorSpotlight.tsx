@@ -1,6 +1,5 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import gsap from "gsap";
 
 export default function CursorSpotlight() {
   const [variant, setVariant] = useState<"default" | "heading" | "interactive" | "image" | "text" | "large" | "medium">("default");
@@ -26,7 +25,6 @@ export default function CursorSpotlight() {
     const onMouseMove = (e: MouseEvent) => {
       let target = e.target as HTMLElement | null;
       let newVariant: typeof variant = "default";
-      let interactiveTarget: HTMLElement | null = null;
 
       // DOM Traversal to determine interaction state
       while (target && target !== document.body && target !== document.documentElement) {
@@ -41,11 +39,10 @@ export default function CursorSpotlight() {
         
         if (tag === 'button' || tag === 'a' || target.getAttribute('role') === 'button') {
           newVariant = "interactive";
-          interactiveTarget = target;
           
           // Check if magnetic pull should be disabled for this element
           if (target.getAttribute('data-no-magnetic') === 'true') {
-            interactiveTarget = null; // Still show interactive variant, but don't pull
+            // Logic for no-magnetic if needed
           }
           break;
         }

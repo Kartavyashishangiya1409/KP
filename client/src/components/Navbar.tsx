@@ -335,7 +335,7 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     to={link.path}
-                    ref={(el) => (linksRef.current[index] = el)}
+                    ref={(el) => { linksRef.current[index] = el; }}
                     className={cn(
                       "text-5xl font-heading font-bold tracking-tight transition-colors text-center",
                       location.pathname === link.path ? "text-ink" : "text-ink-secondary hover:text-ink"
@@ -350,7 +350,7 @@ export default function Navbar() {
               <div className="px-6 py-8 border-t border-border-subtle">
                 <Link to="/contact" onClick={closeMenu}>
                   <button 
-                   ref={(el) => (linksRef.current[navLinks.length] = el as any)}
+                   ref={(el) => { linksRef.current[navLinks.length] = el as any; }}
                    className="w-full bg-ink text-ink-inverse py-4 rounded-2xl text-[16px] font-bold shadow-lg active:scale-[0.98] transition-all cursor-pointer"
                   >
                     {t("nav.enquire_now")}
