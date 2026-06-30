@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -20,7 +20,32 @@ export default function Home() {
   const whyRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
+  const [isReady, setIsReady] = useState(false);
+
+  // Wait for critical layout-affecting assets (images and web fonts) to be fully ready
   useEffect(() => {
+    const images = document.querySelectorAll<HTMLImageElement>(
+      "[data-hero-image] img, [data-split-image] img, [data-book-item] img"
+    );
+
+    const imagePromises = Array.from(images).map((img) => {
+      if (img.complete) return Promise.resolve();
+      return new Promise<void>((resolve) => {
+        img.onload = () => resolve();
+        img.onerror = () => resolve();
+      });
+    });
+
+    const fontPromise = document.fonts?.ready ?? Promise.resolve();
+
+    Promise.all([...imagePromises, fontPromise]).then(() => {
+      setIsReady(true);
+    });
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!isReady) return;
+
     const ctx = gsap.context(() => {
       // ────────── HERO ──────────
       const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -234,10 +259,21 @@ export default function Home() {
           toggleActions: "play none none none",
         },
       });
+      // Ensure all ScrollTrigger positions are perfectly recalculated after initialization
+      ScrollTrigger.refresh();
     });
 
-    return () => ctx.revert();
-  }, []);
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      ctx.revert();
+    };
+  }, [isReady]);
 
 
   return (
@@ -318,6 +354,8 @@ export default function Home() {
                 alt="Premium educational books by Kartavya Publication arranged on a marble surface"
                 className="w-full rounded-2xl"
                 loading="eager"
+                width={1024}
+                height={1024}
               />
               {/* Soft glow beneath */}
               <div className="absolute -bottom-10 inset-x-10 h-24 bg-accent-warm/10 blur-3xl rounded-full pointer-events-none" />
@@ -364,6 +402,8 @@ export default function Home() {
                 alt="Student studying mathematics from a premium Kartavya Publication textbook"
                 className="w-full rounded-2xl"
                 loading="lazy"
+                width={1024}
+                height={1024}
               />
             </div>
 
@@ -398,7 +438,8 @@ export default function Home() {
         ═══════════════════════════════════════════ */}
         <section
           ref={showcaseRef}
-          className="bg-surface-muted overflow-hidden h-screen flex flex-col"
+          className="bg-surface-muted overflow-hidden flex flex-col"
+          style={{ height: "100dvh" }}
           id="books-showcase"
         >
           {/* Heading — sits above the pinned area */}
@@ -430,7 +471,9 @@ export default function Home() {
                     src={book.image}
                     alt={`${book.title} (${book.subtitle}) — Premium mathematics textbook by Kartavya Publication`}
                     className="w-full rounded-2xl transition-transform duration-700 group-hover:scale-[1.02]"
-                    loading="lazy"
+                    loading="eager"
+                    width={1024}
+                    height={1024}
                   />
                   {/* Soft glow */}
                   <div
