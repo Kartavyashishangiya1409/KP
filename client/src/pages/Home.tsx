@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -20,32 +20,7 @@ export default function Home() {
   const whyRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
-  const [isReady, setIsReady] = useState(false);
-
-  // Wait for critical layout-affecting assets (images and web fonts) to be fully ready
-  useEffect(() => {
-    const images = document.querySelectorAll<HTMLImageElement>(
-      "[data-hero-image] img, [data-split-image] img, [data-book-item] img"
-    );
-
-    const imagePromises = Array.from(images).map((img) => {
-      if (img.complete) return Promise.resolve();
-      return new Promise<void>((resolve) => {
-        img.onload = () => resolve();
-        img.onerror = () => resolve();
-      });
-    });
-
-    const fontPromise = document.fonts?.ready ?? Promise.resolve();
-
-    Promise.all([...imagePromises, fontPromise]).then(() => {
-      setIsReady(true);
-    });
-  }, []);
-
   useLayoutEffect(() => {
-    if (!isReady) return;
-
     const ctx = gsap.context(() => {
       // ────────── HERO ──────────
       const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -263,17 +238,37 @@ export default function Home() {
       ScrollTrigger.refresh();
     });
 
-    const handleResize = () => {
-      ScrollTrigger.refresh();
+    let refreshFrame = 0;
+    const scheduleRefresh = () => {
+      cancelAnimationFrame(refreshFrame);
+      refreshFrame = requestAnimationFrame(() => ScrollTrigger.refresh());
     };
+    const images = Array.from(document.querySelectorAll<HTMLImageElement>(
+      "[data-hero-image] img, [data-split-image] img, [data-book-item] img"
+    ));
+    images.forEach((image) => {
+      image.addEventListener("load", scheduleRefresh);
+      image.addEventListener("error", scheduleRefresh);
+    });
 
+    const handleResize = () => ScrollTrigger.refresh();
     window.addEventListener("resize", handleResize);
+
+    // Images have explicit dimensions, so animations can start immediately. Refresh
+    // trigger positions after fonts and late-loading images settle.
+    document.fonts?.ready.then(scheduleRefresh);
+    scheduleRefresh();
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      images.forEach((image) => {
+        image.removeEventListener("load", scheduleRefresh);
+        image.removeEventListener("error", scheduleRefresh);
+      });
+      cancelAnimationFrame(refreshFrame);
       ctx.revert();
     };
-  }, [isReady]);
+  }, []);
 
 
   return (
