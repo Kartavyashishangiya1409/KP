@@ -83,7 +83,7 @@ export default function Home() {
             trigger: "[data-hero-image]",
             start: "center center",
             end: "+=800",
-            scrub: 0.25,
+            scrub: true,
             pin: true,
             pinSpacing: true,
           },
@@ -172,7 +172,7 @@ export default function Home() {
             trigger: showcaseRef.current,
             start: "top top",
             end: () => `+=${getScrollAmount()}`,
-            scrub: 0.8,
+            scrub: true,
             pin: true,
             invalidateOnRefresh: true,
           },
@@ -189,7 +189,7 @@ export default function Home() {
               containerAnimation: scrollTween,
               start: "left 90%",
               end: "left 60%",
-              scrub: 1,
+              scrub: true,
             },
           });
         });
