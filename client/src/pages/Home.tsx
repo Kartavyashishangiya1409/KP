@@ -83,7 +83,7 @@ export default function Home() {
             trigger: "[data-hero-image]",
             start: "center center",
             end: "+=800",
-            scrub: 1,
+            scrub: 0.25,
             pin: true,
             pinSpacing: true,
           },
